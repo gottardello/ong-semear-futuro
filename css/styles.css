@@ -5,7 +5,10 @@ h2{font-size:var(--fs-lg);color:var(--cor-primaria);margin-bottom:var(--esp-3)}
 h3{font-size:var(--fs-md);margin-bottom:var(--esp-2)}
 p+p,p+ul,ul+h3,p+h3{margin-top:var(--esp-2)}
 ul{padding-left:var(--esp-4)}a{color:var(--cor-primaria)}
-:focus-visible{outline:3px solid var(--cor-secundaria);outline-offset:2px}
+:focus-visible{outline:3px solid var(--cor-primaria-escura);outline-offset:2px}
+.topo :focus-visible,.rodape :focus-visible,.hero :focus-visible,.skip:focus-visible{outline-color:var(--cor-secundaria)}
+.hero .btn:focus-visible{outline-color:#fff}
+#app:focus{outline:none}
 .skip{position:absolute;left:-999px;background:var(--cor-secundaria);padding:var(--esp-2) var(--esp-3);color:#000}
 .skip:focus{left:var(--esp-3);top:var(--esp-3);z-index:20}
 .container{width:100%;margin:0 auto;padding:0 var(--esp-3)}
@@ -70,7 +73,7 @@ legend{font-weight:700;color:var(--cor-primaria);padding:0 var(--esp-2)}
 .campos{display:grid;gap:var(--esp-3);grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
 .campo{display:flex;flex-direction:column}.campo label,.grupo-check label{font-weight:700;font-size:.95rem}
 .grupo-check{display:flex;flex-wrap:wrap;gap:var(--esp-2) var(--esp-4)}.grupo-check label{font-weight:400}
-input,select{padding:.6rem;border:2px solid var(--cor-borda);border-radius:var(--raio);width:100%;transition:border-color .25s,box-shadow .25s,background-color .25s}
+input,select{padding:.6rem;border:2px solid var(--cor-texto-suave);border-radius:var(--raio);width:100%;transition:border-color .25s,box-shadow .25s,background-color .25s}
 input[type=radio],input[type=checkbox]{width:auto}
 input:focus,select:focus{border-color:var(--cor-primaria);box-shadow:0 0 0 3px rgba(15,92,77,.25)}
 .is-invalid{border-color:var(--cor-erro)!important;background:#fdf1f0}.is-valid{border-color:var(--cor-sucesso)!important}
@@ -86,3 +89,9 @@ dialog::backdrop{background:rgba(10,63,53,.6)}dialog form{border:0;padding:0}dia
 .rodape{background:var(--cor-primaria-escura);color:#e7f0ec;padding:var(--esp-5) 0;margin-top:var(--esp-5)}.rodape a{color:var(--cor-secundaria)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
+/* Botão e ajustes do alto contraste */
+.btn-contraste{margin-left:auto;background:none;color:#fff;border:2px solid #fff;border-radius:var(--raio);padding:var(--esp-1) var(--esp-3);cursor:pointer;font-family:var(--fonte-titulo)}
+.btn-contraste[aria-pressed="true"]{background:#fff;color:#000}
+:root[data-tema="alto-contraste"] [class*="badge"]{background:#000;color:#fff}
+:root[data-tema="alto-contraste"] main a:not(.btn){text-decoration:underline}
+:root[data-tema="alto-contraste"] .projeto{border-color:#000}

@@ -10,3 +10,10 @@
   --esp-1:.25rem;--esp-2:.5rem;--esp-3:1rem;--esp-4:1.5rem;--esp-5:2rem;--esp-6:3rem;--esp-7:4rem;
   --raio:.4rem;
 }
+
+/* Perfil de alto contraste */
+:root[data-tema="alto-contraste"]{
+  --cor-primaria:#000;--cor-primaria-escura:#000;--cor-secundaria:#ffd400;
+  --cor-fundo:#fff;--cor-superficie:#fff;--cor-texto:#000;--cor-texto-suave:#000;
+  --cor-borda:#000;--cor-erro:#a00000;--cor-sucesso:#005a00;
+}
