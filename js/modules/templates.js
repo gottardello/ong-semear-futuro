@@ -1,3 +1,11 @@
+// Imagens referenciadas por new URL: o bundler as copia e renomeia no build.
+const IMG = {
+  webp400: new URL("../../imagens/voluntarios-400.webp", import.meta.url).href,
+  webp800: new URL("../../imagens/voluntarios-800.webp", import.meta.url).href,
+  jpg400: new URL("../../imagens/voluntarios-400.jpg", import.meta.url).href,
+  jpg800: new URL("../../imagens/voluntarios-800.jpg", import.meta.url).href,
+};
+
 export const esc = (t) =>
   String(t).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
@@ -20,7 +28,7 @@ export const cartaoProjeto = ({ slug, titulo, texto, categoria, publico }) => `
 const campo = (id, rotulo, tipo = "text", extra = "") => `
   <div class="campo"><label for="${id}">${rotulo}</label>
   <input type="${tipo}" id="${id}" name="${id}" required aria-describedby="erro-${id}" ${extra}>
-  <small class="erro-msg" id="erro-${id}"></small></div>`;
+  <small class="erro-msg" aria-live="polite" id="erro-${id}"></small></div>`;
 
 export const itemCadastro = (c) =>
   `<li><strong>${esc(c.nome)}</strong> (${esc(c.tipo)}) em ${new Date(c.id).toLocaleDateString("pt-BR")}</li>`;
@@ -35,8 +43,8 @@ export const templates = {
     <a class="btn" href="#/cadastro">Quero ajudar</a></div></section>
   <section><div class="container">
     <h2>Quem somos</h2>
-    <figure><picture><source srcset="../imagens/voluntarios.webp" type="image/webp">
-    <img src="../imagens/voluntarios.jpg" alt="Voluntários da Semear Futuro ajudando crianças com as tarefas escolares em uma sala comunitária" width="800" height="450" loading="lazy"></picture>
+    <figure><picture><source srcset="${IMG.webp400} 400w, ${IMG.webp800} 800w" sizes="(min-width: 768px) 720px, 100vw" type="image/webp">
+    <img src="${IMG.jpg800}" srcset="${IMG.jpg400} 400w, ${IMG.jpg800} 800w" sizes="(min-width: 768px) 720px, 100vw" alt="Voluntários da Semear Futuro ajudando crianças com as tarefas escolares em uma sala comunitária" width="800" height="450" loading="lazy"></picture>
     <figcaption>Aula de reforço escolar do projeto Reforço na Prática.</figcaption></figure>
     <p>Fundada em 2012, atua com reforço escolar, segurança alimentar e acesso à cultura.</p>
     <h3>Missão</h3><p>Garantir educação de qualidade e vida digna a toda criança.</p>
@@ -87,16 +95,16 @@ export const templates = {
       ${campo("rua", "Rua", "text", 'autocomplete="address-line1"')}${campo("cidade", "Cidade", "text", 'autocomplete="address-level2"')}
       <div class="campo"><label for="uf">Estado</label>
       <select id="uf" name="uf" required autocomplete="address-level1" aria-describedby="erro-uf"><option value="">Selecione</option>${UFS.map((u) => `<option>${u}</option>`).join("")}</select>
-      <small class="erro-msg" id="erro-uf"></small></div>
+      <small class="erro-msg" aria-live="polite" id="erro-uf"></small></div>
     </div></fieldset>
     <fieldset><legend>Como deseja ajudar</legend>
       <div class="grupo-check" role="radiogroup" aria-label="Tipo de apoio">
       <label><input type="radio" name="tipo" value="doador" required> Doador</label>
       <label><input type="radio" name="tipo" value="voluntário"> Voluntário</label>
       <label><input type="radio" name="tipo" value="ambos"> Ambos</label></div>
-      <small class="erro-msg" id="erro-tipo"></small>
+      <small class="erro-msg" aria-live="polite" id="erro-tipo"></small>
       <p><label><input type="checkbox" name="termos" required> Concordo com o uso dos meus dados, conforme a LGPD.</label></p>
-      <small class="erro-msg" id="erro-termos"></small>
+      <small class="erro-msg" aria-live="polite" id="erro-termos"></small>
     </fieldset>
     <button class="btn" type="submit">Enviar cadastro</button></form></div></section>
   <section><div class="container"><h2>Cadastros salvos neste navegador</h2>
