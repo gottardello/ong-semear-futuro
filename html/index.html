@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Semear Futuro: ONG que leva educação, alimento e cultura a famílias em vulnerabilidade.">
+<title>Início | Semear Futuro</title>
+<link rel="icon" href="../imagens/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<a class="skip" href="#app">Ir para o conteúdo</a>
+<header class="topo"><div class="container topo__barra">
+<a class="marca" href="#/inicio"><img src="../imagens/logo.svg" alt="" width="40" height="40">Semear Futuro</a>
+<button class="menu-toggle" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+<nav aria-label="Navegação principal">
+<ul id="menu-principal" class="menu">
+<li><a href="#/inicio">Início</a></li>
+<li class="menu__item--sub"><a href="#/projetos">Projetos</a>
+<ul class="submenu">
+<li><a href="#/projetos?cat=educacao">Educação</a></li>
+<li><a href="#/projetos?cat=alimentacao">Alimentação</a></li>
+<li><a href="#/projetos?cat=cultura">Cultura</a></li>
+</ul></li>
+<li><a href="#/cadastro">Cadastro</a></li>
+</ul>
+</nav>
+</div></header>
+<main id="app" tabindex="-1"><noscript><p class="container">Ative o JavaScript para usar este site.</p></noscript></main>
+<footer class="rodape"><div class="container">
+<p><strong>Semear Futuro</strong>, organização sem fins lucrativos.</p>
+<address>Rua da Esperança, 100, Curitiba, PR · <a href="mailto:contato@semearfuturo.org.br">contato@semearfuturo.org.br</a></address>
+<p><small>&copy; 2026 Semear Futuro. Projeto acadêmico.</small></p>
+</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<dialog id="modal" aria-labelledby="modal-titulo">
+<form method="dialog"><h2 id="modal-titulo"></h2><p id="modal-texto"></p>
+<button class="btn" value="ok">Confirmar</button><button class="btn btn--sec" value="cancelar">Cancelar</button></form>
+</dialog>
+<script src="https://cdn.jsdelivr.net/npm/imask"></script>
+<script type="module" src="../js/main.js"></script>
+</body>
+</html>
