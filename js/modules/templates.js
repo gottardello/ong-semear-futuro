@@ -1,3 +1,11 @@
+// Imagens referenciadas por new URL: o bundler as copia e renomeia no build.
+const IMG = {
+  webp400: new URL("../../imagens/voluntarios-400.webp", import.meta.url).href,
+  webp800: new URL("../../imagens/voluntarios-800.webp", import.meta.url).href,
+  jpg400: new URL("../../imagens/voluntarios-400.jpg", import.meta.url).href,
+  jpg800: new URL("../../imagens/voluntarios-800.jpg", import.meta.url).href,
+};
+
 export const esc = (t) =>
   String(t).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
@@ -35,8 +43,8 @@ export const templates = {
     <a class="btn" href="#/cadastro">Quero ajudar</a></div></section>
   <section><div class="container">
     <h2>Quem somos</h2>
-    <figure><picture><source srcset="../imagens/voluntarios.webp" type="image/webp">
-    <img src="../imagens/voluntarios.jpg" alt="Voluntários da Semear Futuro ajudando crianças com as tarefas escolares em uma sala comunitária" width="800" height="450" loading="lazy"></picture>
+    <figure><picture><source srcset="${IMG.webp400} 400w, ${IMG.webp800} 800w" sizes="(min-width: 768px) 720px, 100vw" type="image/webp">
+    <img src="${IMG.jpg800}" srcset="${IMG.jpg400} 400w, ${IMG.jpg800} 800w" sizes="(min-width: 768px) 720px, 100vw" alt="Voluntários da Semear Futuro ajudando crianças com as tarefas escolares em uma sala comunitária" width="800" height="450" loading="lazy"></picture>
     <figcaption>Aula de reforço escolar do projeto Reforço na Prática.</figcaption></figure>
     <p>Fundada em 2012, atua com reforço escolar, segurança alimentar e acesso à cultura.</p>
     <h3>Missão</h3><p>Garantir educação de qualidade e vida digna a toda criança.</p>
